@@ -1,0 +1,24 @@
+_Send_Wiegand: CODE, 3348 0 144
+_UART2IntGetChar: CODE, 3634 0 96
+_UART2IntPutChar: CODE, 3912 0 88
+__stringdata: SMALLCONST, 778 0 78
+_Init44k22: CODE, 4482 0 2
+_dpowers: SMALLCONST, 768 0 10
+_main: CODE, 858 0 790
+_CheckBlueR2: CODE, 4080 0 78
+_wTx: CODE, 4366 0 46
+_Interrupt_High: CODE, 8 0 160
+__initialization: CODE, 3492 0 132
+_Init_IO: CODE, 3730 0 92
+_UART2IntISR: CODE, 2752 0 270
+_UART2IntInit: CODE, 3822 0 90
+_Delay10x: CODE, 4158 0 78
+_Init_HW: CODE, 3022 0 178
+_InitBlue: CODE, 4460 0 18
+_Wiegand4: CODE, 4000 0 80
+_Wiegand8: CODE, 4236 0 76
+_Wiegand32: CODE, 3200 0 148
+_Wiegand34: CODE, 2206 0 546
+_Wiegand26: CODE, 1648 0 558
+_Delay_uS: CODE, 4312 0 54
+Total: 3812

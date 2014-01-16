@@ -1,0 +1,8 @@
+char bt_address_buf[36];
+char sidstefirecifre[4];
+
+
+
+
+sidstefirecifre = bt_address_buf[3-0];
+

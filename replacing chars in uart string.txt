@@ -1,0 +1,19 @@
+for ( i = 0; i < 20; i++ )                     // Loop to be proceeded 20 times ( buffer_uart is 20 long table )
+      {
+          if (DataRdyUSART())                 // Check if datas are ready to be read.
+          {
+               buffer_uart[i] = ReadUART();     // Store byte from uart in the buffer
+
+
+              if (buffer_uart[i]==13)         // Is stored character CR ?
+                  {
+                  buffer_uart[i] = '/0';         // Replace it with /0 character and ends the buffer string
+                  }
+
+          }
+
+     // Buffer_uart is now full :
+     // Terminates the string to get it displayable on the web page
+     buffer_uart[20] = '/0';
+
+     }

@@ -1,0 +1,99 @@
+//strstr: find a substring within a string
+//
+//strcpy, strncpy: copy one string to another
+//strcat, strncat: append one string to another
+//strlen: return the length of a string
+//strchr: find a character within a string
+//strcmp, strncmp: compare two strings for equality
+//strtok: split a string into tokens separated by delimiters
+
+
+//
+//extern volatile char connected;
+//extern volatile char remoteaddr[13]; //remoteaddressen på den pairede enhed
+//extern char defaultaddr[13]; //remote addressen på en pairede enhed FFFFFFFFFFFF svarer til alle telefoner
+//extern int s;
+//extern volatile char kode[4]; //konfigurerbar kode
+//extern char kode0[4]; //kode 0  = 1234
+//extern char kode1[4]; //kode 1 = 0000
+
+
+//
+// Receive_Sensitivity: Integer value from 0 to 1.
+//0 = -89 dBm Standard Mode
+//1 = -95 dBm High-Gain Mode [~7.5mW more power consumption than at -89]
+//ATSLP to put module into sleep mode as an alternative to PIO_3.
+//ATST to return stack type.
+//ATCS? to get connection status details.
+//ATSCH to support multiple connections.
+//ATFC/ATSFC for manual control of configuration flashing.
+//ATSRM to configure response mode.
+//ATSDIF for discovery data formatting.
+//ATSSP to control serial profile data mode settings.
+//ATMRC to support remote command mode through BRSP.
+//ATPKR to support Passkey Entry for pairing.
+//ATCFG? for configuration dump.
+//ATSDBLE to configure the module?s default behavior.
+//ATSBRSP to allow configuration of the BRSP service.
+//ATDSDLE to support connectable direct advertising mode.
+//ATSDSLE/ATSDSTLE to allow advertising configuration.
+//ATSDILE/ATSDITLE to allow discovery configuration.
+//ATSDMTLE to allow connection initiation timing configuration.
+//ATSCCP to allow connection parameter updates while connected.
+//ATPLE/ATSPLE/ATUPLE/ATCPLE/ATSPK to support LE pairing.
+//ATSWL/ATUWL/ATCWL to support LE whitelist
+//ATSZ command to configure sleep mode.
+//ATGDPS, ATGDPSU for GATT Primary Service Discovery.
+//ATGDC, ATGDCU for GATT Characteristic Discovery.
+//ATGDCD for GATT Characteristic Descriptor Discovery.
+//ATGR, ATGRU for GATT Read.
+//ATGW, ATGWN for GATT Write.
+//ATB to enable data bridging between two different connections.
+//ATUCR to handle CB numeric comparison authentication.
+//ATSBAS/ATSBAS? to configure the Battery Service.
+//ATSDSDLE/ATSDSDLE? to configure advertising and scan response data.
+//ATSAPP/ATSAPP? to set the appearance.
+//ATADC? to read ADCs.
+//ATBL? to read the battery level.
+//ATT? to read the temperature.
+//ATCT to calibrate the internal temperature sensor.
+//ATRFO to enable RF observation outputs.
+
+//COMMAND:  ATSPL,3,1<cr>
+//Transmit_Power: Integer value from 0 to 3.
+//0 = -23 dBm
+//1 =  -6  dBm [~9mW more power consumption than at -23]
+//2 =   0  dBm [~18mW more power consumption than at -23]
+//3 =   4  dBm [~33mW more power consumption than at -23]
+//
+
+//Funktion til at sortere koder - forbindelse error codes
+//Error Code:
+//01 = Invalid Parameters
+//02 = Invalid Role
+//03 = Invalid State
+//04 = Invalid Password
+//05 = Invalid Connection Handle
+//06 = Configuration Locked
+//07 = List Error
+//08 = Hardware Error
+//09 = No Address Stored
+//10 = Bluetooth Error
+//11 = Memory Allocation Error
+//12 = GATT Request Pending
+//
+//ATDM,001D98438C41
+//
+//GetsUart1(uart_buf, 2);
+//
+// i telefonen søger man efter nye enheder
+// derefter trykker man pair
+// og indtaster pinkode
+//punkt 1 og 2 sker samtidigt
+//1. telefonen sender en request + laver en animation "pairing"
+//2. modulet modtager så og skriver:
+//PIN_REQ,001D98438C41
+//så skal man svare tilbage med:
+//ATPINR,001D98438C41,123456
+//hvor 123456 er pin koden
+//herefter er de 2 enheder paired
